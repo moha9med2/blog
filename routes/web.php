@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +33,7 @@ Route::get('/articles/create', [ArticleController::class,'create'] )->name('arti
 Route::post('/articles/store', [ArticleController::class,'store'] )->name('articles.store');
 
 
+Route::get('/category/{id}',[CategoryController::class,'show'])->name('categories');
 
 
 Route::get('/dashboard', function () {

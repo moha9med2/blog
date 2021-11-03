@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ArticleController extends Controller
 {
     public function index(){
-        $articles = Article::get();
+        $articles = Article::with('user','category')->get();
         return view('articles.articles',compact('articles'));
         // return response()->json($articles);
     }
@@ -33,6 +33,8 @@ class ArticleController extends Controller
 
         return "test";
     }
+
+    
 
 
 }
