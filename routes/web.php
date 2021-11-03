@@ -18,14 +18,16 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+Route::prefix('admin')->group(function () {
 
-Route::get('/', function(){
+Route::get('/home', function(){
     return view('pages.home');
+})->name('home');
+Route::get('/articles2', [ArticleController::class,'index'] )->name('articles.articles');
+
 });
 
 
-// Route::get('/articles', [ArticleController::class,'index'] )->name('articles.articles');
-Route::get('/articles2', [ArticleController::class,'index'] )->name('articles.articles');
 Route::get('/articles/create', [ArticleController::class,'create'] )->name('articles.create');
 Route::post('/articles/store', [ArticleController::class,'store'] )->name('articles.store');
 
